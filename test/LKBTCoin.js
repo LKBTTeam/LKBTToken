@@ -1,0 +1,1 @@
+const LKBT = artifacts.require("LKBT");
