@@ -25,19 +25,6 @@ library IterableMapping {
       return false;
     }
   }
-  function remove(itmap storage self, address key) public returns (bool success)
-  {
-    uint keyIndex = self.data[key].keyIndex;
-    if (keyIndex == 0)
-      return false;
-    delete self.data[key];
-    self.keys[keyIndex - 1].deleted = true;
-    self.size --;
-  }
-  function contains(itmap storage self, address key) public view returns (bool)
-  {
-    return self.data[key].keyIndex > 0;
-  }
   function iterate_start(itmap storage self) public view returns (uint keyIndex)
   {
     return iterate_next(self, uint(-1));
